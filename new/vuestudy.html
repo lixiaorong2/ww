@@ -1,0 +1,75 @@
+git push -u origin master<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+            <div id="my_new">
+                <p>{{ff}}</p>
+                <button @click="lang">click_me</button>
+                <button @click="stop">click_me1</button>
+                <div>{{aa}}</div>
+               <button @click="linkbd">123</button>
+           
+            <select v-model="ff">
+                <option value="1">4</option>
+                <option value="2">3</option>
+                <option value="3">2</option>
+                <option value="4">1</option>
+            </select>
+            
+        </div>
+        <script src="vue.min.js"></script>
+        <script>
+            var vm = new Vue ({
+                el:'#my_new',
+                data:{
+                    msg:'猥琐发育',
+                    intervalId:null,
+                    ff:'0',
+                    aa:null
+
+                },
+            methods: {
+                lang(){
+                if(this.intervalId !=null) return;
+                this.intervalId = setInterval(() => {
+                var start = this.msg.substring(0,1)
+                var end = this.msg.substring(1)
+                this.msg = end + start
+            }, 300);
+                
+            },
+            stop(){
+              clearInterval(this.intervalId);
+              this.intervalId = null;
+              console.log(this.intervalId)
+            },
+            linkbd(){
+                this.aa = parseInt(1)-parseInt(5)
+                console.log(123)
+            }
+            
+        }
+
+
+            })
+            
+              
+            </script>
+
+
+
+    </body>
+</html>
